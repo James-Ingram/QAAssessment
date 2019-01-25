@@ -6,26 +6,27 @@ public class App {
 	public static void main(String[] args) {
 
 		boolean map, exit = false;
-		Descriptors.Dialogue(0);//All three generate starting dialogue options
+		Descriptors.Dialogue(0);// All three generate starting dialogue options
 		Descriptors.Dialogue(1);
 		Descriptors.Dialogue(6);
-		Scanner mapInputScaner = new Scanner(System.in); //Takes map option
+		Scanner mapInputScaner = new Scanner(System.in); // Takes map option
 		String mapInputString = mapInputScaner.next().toLowerCase();
-		if (mapInputString.equals("no")) { //checks if the user wants to use the map
+		if (mapInputString.equals("no")) { // checks if the user wants to use the map
 			map = false;
 		} else {
 			map = true;
 		}
-		Descriptors.Dialogue(7); 
-		while (!exit) {				//Used to keep game running constantly
+		Descriptors.Dialogue(7);
+		while (!exit) { // Used to keep game running constantly
 			Descriptors.Dialogue(2);
-			Terrain.TerrainGen();	//Adds 0's to all spaces on terrain
-			Terrain.RandomFeature();//Adds in the RandomFeature
-			Terrain.FeatureFinder();//Finds where the feature was placed
-			restart: while (Terrain.field[Terrain.featurePosition[0]][Terrain.featurePosition[1]] != Terrain.field[Movement.currentPosition[0]][Movement.currentPosition[1]]) { //Win condition
+			Terrain.TerrainGen(); // Adds 0's to all spaces on terrain
+			Terrain.RandomFeature();// Adds in the RandomFeature
+			Terrain.FeatureFinder();// Finds where the feature was placed
+			restart: while (Terrain.field[Terrain.featurePosition[0]][Terrain.featurePosition[1]] != Terrain.field[Movement.currentPosition[0]][Movement.currentPosition[1]]) {
+				// Win condition
 				Descriptors.Dialogue(4);
-				Scanner userInputScaner = new Scanner(System.in);	// Takes movement option
-				String userInputString = userInputScaner.next().toLowerCase(); 
+				Scanner userInputScaner = new Scanner(System.in); // Takes movement option
+				String userInputString = userInputScaner.next().toLowerCase();
 				switch (userInputString) {// Each Case is a different direction
 				case "n":
 				case "north": {
@@ -68,7 +69,7 @@ public class App {
 				}
 				}
 			}
-			Descriptors.TreasureOptions(Terrain.randomNum.nextInt(11)); //Randomises winning messages
+			Descriptors.TreasureOptions(Terrain.randomNum.nextInt(11)); // Randomises winning messages
 		}
 	}
 }

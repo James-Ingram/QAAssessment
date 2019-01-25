@@ -2,7 +2,7 @@ package com.qa.Assessment;
 
 public class Movement {
 
-	//this file contains all the actions relative to the directions they can move
+	// this file contains all the actions relative to the directions they can move
 	public static int[] currentPosition = new int[2]; // players position on the board
 
 	public static void North() {

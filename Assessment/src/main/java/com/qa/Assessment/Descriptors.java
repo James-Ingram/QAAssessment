@@ -2,7 +2,8 @@ package com.qa.Assessment;
 
 public class Descriptors {
 
-	//This entire file is made up of all the text options that can be used in the game.
+	// This entire file is made up of all the text options that can be used in the
+	// game.
 	public static void Dialogue(int variant) {
 		switch (variant) {
 		case 0: {
@@ -129,8 +130,6 @@ public class Descriptors {
 			}
 			break;
 		}
-
 		}
 	}
-
 }

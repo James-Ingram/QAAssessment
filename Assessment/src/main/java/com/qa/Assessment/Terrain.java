@@ -4,8 +4,9 @@ import java.util.Random;
 
 public class Terrain {
 	public static int[][] field = new int[5][5]; // represents the play area
-	public static int[] featurePosition = new int[2]; //represents the goal
+	public static int[] featurePosition = new int[2]; // represents the goal
 	public static Random randomNum = new Random();
+
 	public static void PrintField() {
 		// Iterates through "Field" and prints out value, reusable without assignment
 		// (unlike TerrainGen().)
@@ -31,28 +32,25 @@ public class Terrain {
 	}
 
 	public static void RandomFeature() {
-		// Randomly selects a location and changes it to a 1.	
+		// Randomly selects a location and changes it to a 1.
 		field[randomNum.nextInt(5)][randomNum.nextInt(5)] = 1;
 		// Checks the location of the feature
 		FeatureFinder();
-		//Prevents feature spawning on player...
-		if(field[featurePosition[0]][featurePosition[1]]== field[Movement.currentPosition[0]][Movement.currentPosition[1]])
-		{
+		// Prevents feature spawning on player...
+		if (field[featurePosition[0]][featurePosition[1]] == field[Movement.currentPosition[0]][Movement.currentPosition[1]]) {
 			field[randomNum.nextInt(5)][randomNum.nextInt(5)] = 1;
 		}
 	}
 
-	public static void FeatureFinder() //finds the feature
+	public static void FeatureFinder() // finds the feature
 	{
 		for (int row = 0; row < 5; row++) {
 			for (int column = 0; column < 5; column++) {
-				if(field[row][column] == 1)
-				{
-					featurePosition[0]=row;
-					featurePosition[1]=column;
+				if (field[row][column] == 1) {
+					featurePosition[0] = row;
+					featurePosition[1] = column;
 				}
 			}
 		}
 	}
-	
 }
